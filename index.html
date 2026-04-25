@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>DANGER SCHOOL</title>
+    <style>
+        body { 
+            background-color: black; 
+            color: red; 
+            text-align: center; 
+            font-family: 'Courier New', Courier, monospace; 
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* جووڵەی لەرزینی ناونیشانەکە */
+        h1 { 
+            font-size: 50px; 
+            text-shadow: 2px 2px 10px red; 
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        img { 
+            width: 90%; 
+            max-width: 500px; 
+            border: 3px solid red; 
+            margin: 20px 0; 
+            filter: grayscale(0.5);
+        }
+
+        p { font-size: 20px; line-height: 1.6; }
+
+        .warning { 
+            font-weight: bold; 
+            font-size: 25px; 
+            margin-top: 20px; 
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* ستایلی کاتژمێرەکە */
+        #clock {
+            font-size: 30px;
+            margin-top: 30px;
+            color: white;
+            background: #400;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DANGER SCHOOL</h1>
+
+    <img src="Screenshot_20260425-101042.jpg" alt="School">
+
+    <p>ئەم قوتابخانەیە یەکێک لە مەترسیدارترین قوتابخانەکانە. هەر تەڵەبەیەکی نوێ بچێتە ئەوێ، گەڕانەوەی بۆ نییە!</p>
+
+    <div class="warning">ئاگاداری: ئێرە شوێنی مناڵ نییە!</div>
+
+    <div id="clock">00:00:00</div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = hours + ":" + minutes + ":" + seconds;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
